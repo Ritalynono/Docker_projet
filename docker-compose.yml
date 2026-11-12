@@ -4,6 +4,9 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis-data:/data
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     networks:
       - redis-network
     healthcheck:
@@ -20,6 +23,9 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - db-data:/var/lib/postgresql/data
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     networks:
       - db-network
     healthcheck:
@@ -30,6 +36,7 @@ services:
 
   vote:
     build: ./vote
+    image: localhost:5000/vote:1.0
     environment:
       REDIS_HOST: ${REDIS_HOST}
     ports:
@@ -39,6 +46,7 @@ services:
 
   worker:
     build: ./worker
+    image: localhost:5000/worker:1.0
     environment:
       REDIS_HOST: ${REDIS_HOST}
       POSTGRES_HOST: ${POSTGRES_HOST}
@@ -51,6 +59,7 @@ services:
 
   result:
     build: ./result
+    image: localhost:5000/result:1.0
     environment:
       POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_USER: ${POSTGRES_USER}
