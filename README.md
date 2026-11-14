@@ -127,9 +127,4 @@ docker service rm registry
 
 # Quitter le Swarm (sur chaque nœud)
 docker swarm leave --force   # workers
-docker swarm leave --force   # manager (après les workers)  
-<<<<<<< HEAD
-```
-=======
-```
->>>>>>> 4fb980d27b16613f7e7358760bb560d3b698b81f
+docker swarm leave --force   # manager (après les workers)
