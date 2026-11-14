@@ -72,6 +72,7 @@ L'application permet à une audience de voter entre deux propositions. Un vote n
     cd /vagrant
     docker service create --name registry --publish 5000:5000 registry:2
     ```
+    > la suite des commande sera également à réaliser en ssh dans le manager1
 
 2. **Construire les images** :
 
