@@ -2,7 +2,7 @@
 
 Ce projet consiste à conteneuriser une application de vote distribuée à l'aide de Docker. L'application originale est lancée manuellement via des scripts bash et n'utilise Docker que pour les instances PostgreSQL et Redis.
 
-## L'objectif
+## Objectif
 
 Conteneuriser chaque module (vote, worker, result) avec des Dockerfiles respectant les bonnes pratiques.
 Orchestrer l'ensemble avec Docker Compose (réseaux, volumes, dépendances, healthchecks).
