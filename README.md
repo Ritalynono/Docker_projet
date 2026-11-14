@@ -43,7 +43,9 @@ L'application permet à une audience de voter entre deux propositions. Un vote n
     docker swarm join --token <TOKEN> 192.168.99.100:2377
     ```
 
-    > Le token est obtenu sur le manager via `docker swarm join-token -q worker`.
+    > Le token est obtenu sur le manager lors du `docker swarm init ...` ou via `docker swarm join-token -q worker`.
+
+    > Pour sortir du ssh : `exit`
 
 3. **Vérifier le cluster** :
 
@@ -55,10 +57,10 @@ L'application permet à une audience de voter entre deux propositions. Un vote n
     Sortie attendue :
 
     ```
-    ID                  NAME    STATUS    AVAILABILITY
-    xxx                 manager Ready     Active
-    yyy                 worker1 Ready     Active
-    zzz                 worker2 Ready     Active
+    ID                  NAME    STATUS    AVAILABILITY    MANGER STATUS    ENGINE VERSION
+    xxx                 manager Ready     Active          Leader           xx.x.x
+    yyy                 worker1 Ready     Active                           xx.x.x
+    zzz                 worker2 Ready     Active                           xx.x.x
     ```
 
 ## Build et push des images
@@ -110,8 +112,8 @@ L'application permet à une audience de voter entre deux propositions. Un vote n
 
 | Application | URL |
 |-------------|-----|
-| Vote | `http://192.168.99.100:5000` |
-| Result | `http://192.168.99.100:5001` |
+| Vote | `http://192.168.99.100:8080/` |
+| Result | `http://192.168.99.100:8081/` |
 
 ## Arrêt
 
