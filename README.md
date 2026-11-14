@@ -11,6 +11,13 @@ L'application permet à une audience de voter entre deux propositions. Un vote n
 
 ## Installation
 
-###Prérequis
+- Prérequis :
 
-VirtualBox est nécessaire pour ce projet avec pour Version recommandée : VirtualBox 7.2.x (Extension Pack requis)
+    VirtualBox est nécessaire pour ce projet avec pour Version recommandée : VirtualBox 7.2.x (Extension Pack requis)
+
+- Mise en place du projet :
+
+    - à la racine du projet :
+        ```bash
+        vagrant up
+        ```
